@@ -9,10 +9,6 @@ $data['title'] = Html::encode($this->title);
 $this->params['breadcrumbs'][] = $this->title;
 
 
-
-$this->params['pageTitle'] 	= $this->title;
-$this->params['pageDesc'] 	= 'describes the sample features';
-
 $data['model']          = $model;
 $data['uploadImage']    = $uploadImage;
 $formView	            = $this->render('_form',$data);

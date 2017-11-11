@@ -33,6 +33,12 @@ class SamplesController extends DefaultController
     	parent::init();
     
     }
+
+    public function actionIndex()
+    {
+        return $this->actionManage();
+    }
+
     /**
      * Lists all Sample models.
      * @return mixed
@@ -40,8 +46,7 @@ class SamplesController extends DefaultController
     public function actionManage()
     {
     	
-    	if (!Yii::$app->user->can('sample-samples-manage'))
-    		throw new UnauthorizedHttpException('Authentication failed.');
+
     	
         $searchModel = new SamplesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -59,8 +64,7 @@ class SamplesController extends DefaultController
      */
     public function actionView($id)
     {
-    	if (!Yii::$app->user->can('sample-samples-view'))
-    		throw new UnauthorizedHttpException('Authentication failed.');
+
     	
         return $this->render('_view', [
             'model' => $this->findModel($id),
@@ -74,9 +78,7 @@ class SamplesController extends DefaultController
      */
     public function actionCreate()
     {
-    	
-    	if (!Yii::$app->user->can('sample-samples-create'))
-    		throw new UnauthorizedHttpException('Authentication failed.');
+
     	
         $model = new Samples();
 
@@ -115,8 +117,7 @@ class SamplesController extends DefaultController
     public function actionUpdate($id)
     {
     	
-    	if (!Yii::$app->user->can('sample-samples-update'))
-    		throw new UnauthorizedHttpException('Authentication failed.');
+
     	
         $model = $this->findModel($id);
 
@@ -156,10 +157,6 @@ class SamplesController extends DefaultController
      */
     public function actionDelete($id)
     {
-    	
-    	if (!Yii::$app->user->can('sample-samples-delete'))
-    		throw new UnauthorizedHttpException('Authentication failed.');
-
 
         SampleData::deleteAll(['sample_id' => $id]);
 
