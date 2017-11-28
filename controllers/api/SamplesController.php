@@ -16,10 +16,7 @@ class SamplesController extends DefaultController {
 	}
 	
 	public function actionView($id){
-	
-		if (!yii::$app->user->can('sample-samples-view'))
-			return ['status' => 403 , 'message' => 'Unauthorize'];
-		
+
 		$model = Samples::findOne($id);
 		
 		if(!$model)
@@ -29,18 +26,11 @@ class SamplesController extends DefaultController {
 	}
 	
 	public function actionIndex(){
-		
-		if (!Yii::$app->user->can('sample-samples-manage'))
-			return ['status' => 403 , 'message' => 'Unauthorize'];
-
 		return Samples::find()->all();
 	}
 	
 	public function actionCreate(){
-		
-		if (!Yii::$app->user->can('sample-samples-create'))
-			return ['status' => 403 , 'message' => 'Unauthorize'];
-		
+
 		$postParams = yii::$app->request->post();
 		
 		$model = new Samples();
@@ -58,10 +48,7 @@ class SamplesController extends DefaultController {
 	}
 	
 	public function actionUpdate($id){
-		
-		if (!Yii::$app->user->can('sample-samples-update'))
-			return ['status' => 403 , 'message' => 'Unauthorize'];
-		
+
 		$postParams = yii::$app->request->post();
 		
 		$model = Samples::findOne($id);
@@ -76,9 +63,6 @@ class SamplesController extends DefaultController {
 	}
 	
 	public function actionDelete($id){
-		
-		if (!Yii::$app->user->can('sample-samples-delete'))
-			return ['status' => 403 , 'message' => 'Unauthorize'];
 		
 		if(Samples::findOne($id)->delete())
 			return ['status' => 1];
