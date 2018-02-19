@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 use yii\web\UnauthorizedHttpException;
 use yii\web\Session;
 use yii\web\UploadedFile;
-
+use yii\filters\AccessControl;
 /**
  * SamplesController implements the CRUD actions for Sample model.
  */
@@ -21,6 +21,17 @@ class SamplesController extends DefaultController
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'view','create','delete','update'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'view','create','delete','update'],
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -28,6 +39,7 @@ class SamplesController extends DefaultController
                 ],
             ],
         ];
+      
     }
     public function init(){
     	parent::init();
