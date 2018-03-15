@@ -3,8 +3,14 @@
     "",
     "\\controllers",
     "\\controllers\\api",
-    "\\controllers\\backend"
+    "\\controllers\\backend",
+    "\\controllers\\console",
+    "\\controllers\\frontend",
+    "\\messages",
+    "\\messages\\tr-TR",
+    "\\migrations",
+    "\\models"
   ],
-  "SelectedNode": "\\controllers\\backend\\MenuController.php",
+  "SelectedNode": "\\models\\UploadImage.php",
   "PreviewInSolutionExplorer": false
 }
