@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\sample\models;
+namespace kouosl\menu\models;
 
 use Yii;
 use yii\base\Model;

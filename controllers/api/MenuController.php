@@ -1,13 +1,13 @@
 <?php
 
-namespace kouosl\sample\controllers\api;
+namespace kouosl\menu\controllers\api;
 
-use kouosl\sample\models\Samples;
+use kouosl\menu\models\menu;
 use Yii;
 
-class SamplesController extends DefaultController {
+class MenuController extends DefaultController{
 	
-	public $modelClass = 'kouosl\sample\models\Samples';
+	public $modelClass = 'kouosl\menu\models\menu';
 	
 	public function actions() {
 		$actions = parent::actions ();
