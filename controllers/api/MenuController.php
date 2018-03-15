@@ -17,7 +17,7 @@ class MenuController extends DefaultController{
 	
 	public function actionView($id){
 
-		$model = Samples::findOne($id);
+		$model = Menu::findOne($id);
 		
 		if(!$model)
 			return ['status' => '404','message' => 'Not Found'];
@@ -26,14 +26,14 @@ class MenuController extends DefaultController{
 	}
 	
 	public function actionIndex(){
-		return Samples::find()->all();
+		return Menu::find()->all();
 	}
 	
 	public function actionCreate(){
 
 		$postParams = yii::$app->request->post();
 		
-		$model = new Samples();
+		$model = new Menu();
 	
 		
 		if($model->load($postParams,'') && $model->validate()){
@@ -51,7 +51,7 @@ class MenuController extends DefaultController{
 
 		$postParams = yii::$app->request->post();
 		
-		$model = Samples::findOne($id);
+		$model = Menu::findOne($id);
 
 		if($model = $this->LoadModel($model, $postParams)){
 				if($model->save())
@@ -64,7 +64,7 @@ class MenuController extends DefaultController{
 	
 	public function actionDelete($id){
 		
-		if(Samples::findOne($id)->delete())
+		if(Menu::findOne($id)->delete())
 			return ['status' => 1];
 		else
 			return ['stauts' => 100];
